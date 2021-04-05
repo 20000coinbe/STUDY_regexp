@@ -118,7 +118,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"main.js":[function(require,module,exports) {
-var str = " HA ha Ha hA\nmy name is kim, yes it is my last name 'kim'\nthe The email is a kimdks12@gmail.com\n";
+var str = " HA ha Ha hA,\nmy name is kim, yes it is my last name 'kim',\nthe The email is a kimdks12@gmail.com\nhttp://www.naver.com\nhttps://daum.net\nThe hoop 010-1234-5678\nfox is a dog\nnnnnmmmmmm";
 var regexp1 = new RegExp("ha", "gi");
 console.log(str.match(regexp1));
 console.log(regexp1.test("ha")); // true
@@ -129,6 +129,35 @@ var regexp3 = /the/gi;
 console.log(str.match(regexp3));
 var text = str.replace(regexp1, "hello");
 console.log(text);
+var regexp4 = /\,$/gm; // g옵션이 있어야 2개, 없으면 1개
+
+console.log(str.match(regexp4));
+console.log(str.match(/^t/gim)); // the The
+
+console.log(str.match(/^T/gm)); // The
+
+console.log(str.match(/m$/g)); // 문자열전체를 한문자로 보기때문에
+
+console.log(str.match(/m$/gm)); // [m, m]
+
+console.log(str.match(/h..p/g)); // [http, http, hoop]
+
+console.log(str.match(/https?/g)); // [http, https]
+
+console.log(str.match(/fox|dog/g)); // [dog, fox]
+
+console.log(str.match(/n{3}/g)); // ['nnn']
+
+console.log(str.match(/m{3,5}/g)); // ['mmmmm']
+
+console.log(str.match(/\w{2,3}/gi)); // Array(46) 두글자씩 쪼개서
+
+console.log(str.match(/\b\w{2,3}\b/gi)); // \b 숫자와 알파벳이 아닌 글자로 경계를 만들어낸다
+
+console.log(str.replace(/\s/, "")); // 공백제거
+
+console.log(str.match(/.{1,}(?=@)/gi));
+console.log(str.match(/(?<=@).{1, }/gim));
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -157,7 +186,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "4624" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "9280" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

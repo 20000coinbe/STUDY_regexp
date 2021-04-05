@@ -45,3 +45,7 @@ console.log(str.match(/m{3,5}/g)); // ['mmmmm']
 
 console.log(str.match(/\w{2,3}/gi)); // Array(46) 두글자씩 쪼개서
 console.log(str.match(/\b\w{2,3}\b/gi)); // \b 숫자와 알파벳이 아닌 글자로 경계를 만들어낸다
+console.log(str.replace(/\s/, "")); // 공백제거
+
+console.log(str.match(/.{1,}(?=@)/gi));
+console.log(str.match(/(?<=@).{1, }/gim));
